@@ -1,0 +1,451 @@
+   * {
+       margin: 0;
+       padding: 0;
+   }
+   
+   body {
+       width: 100%;
+       min-width: 320px;
+       max-width: 640px;
+       margin: 0 auto;
+       font-size: 14px;
+       font-family: -apple-system, Helvetica, sans-serif;
+       color: #666;
+       line-height: 1.5;
+       background-color: #144049;
+       height: 200px;
+       /* height: 3000px; */
+   }
+   
+   img {
+       vertical-align: middle;
+   }
+   
+   .clearfix:after {
+       content: "";
+       display: block;
+       line-height: 0;
+       visibility: hidden;
+       height: 0;
+       clear: both;
+   }
+   
+   ul {
+       margin: 0;
+       padding: 0;
+       list-style: none;
+   }
+   
+   .app {
+       height: 45px;
+       /* display: none; */
+   }
+   
+   .app ul li {
+       height: 45px;
+       background-color: #333333;
+       float: left;
+       line-height: 45px;
+       text-align: center;
+       color: #fff;
+   }
+   
+   .app ul li:nth-child(1) {
+       width: 8%;
+   }
+   
+   .app ul li:nth-child(1) img {
+       width: 10px;
+   }
+   
+   .app ul li:nth-child(2) {
+       width: 10%;
+   }
+   
+   .app ul li:nth-child(2) img {
+       width: 30px;
+       vertical-align: middle;
+   }
+   
+   .app ul li:nth-child(3) {
+       width: 57%;
+   }
+   
+   .app ul li:nth-child(4) {
+       width: 25%;
+       background-color: #f53413!important;
+   }
+   
+   .search-warp {
+       position: fixed;
+       height: 44px;
+       width: 100%;
+       height: 44px;
+       min-width: 320px;
+       max-width: 640px;
+       overflow: hidden;
+       z-index: 999;
+       top: 0;
+   }
+   
+   .searchbtn::before {
+       content: "";
+       display: block;
+       width: 20px;
+       height: 18px;
+       background: url(../images/s-btn.png) no-repeat;
+       background-size: 20px 14px;
+       margin: 14px 0 0 15px;
+   }
+   
+   .searchbtn {
+       position: absolute;
+       left: 0;
+       top: 0;
+       width: 40px;
+       height: 44px;
+   }
+   
+   .searchlogin {
+       position: absolute;
+       right: 0;
+       top: 0;
+       width: 40px;
+       height: 44px;
+       line-height: 44px;
+       font-size: 14px;
+       color: floralwhite;
+       text-align: center;
+       right: 10px;
+   }
+   
+   .search {
+       height: 30px;
+       background-color: #fff;
+       margin: 0 50px;
+       border-radius: 20px;
+       margin-top: 7px;
+       position: relative;
+   }
+   
+   .jd-icon {
+       position: absolute;
+       width: 20px;
+       height: 15px;
+       top: 8px;
+       left: 13px;
+       background: url(../images/jd.png) no-repeat;
+       background-size: 20px 15px;
+   }
+   
+   .jd-icon::after {
+       content: "";
+       width: 1px;
+       height: 15px;
+       display: block;
+       background-color: #ccc;
+       position: absolute;
+       right: -8px;
+       top: 0px;
+   }
+   
+   .jd-search {
+       position: absolute;
+       background: url(../images/sou-suo\ \(1\).png) no-repeat;
+       width: 25ex;
+       height: 18px;
+       top: 8px;
+       left: 50px;
+       background-size: 25px 18px;
+   }
+   /* 轮播图 */
+   
+   .swiper-container {
+       width: 95%;
+       height: 200px;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius: 15px;
+       margin: 5px 10px;
+       overflow: hidden;
+   }
+   
+   .box {
+       width: 100%;
+       height: 200px;
+       background-color: #144049;
+   }
+   
+   .swiper-slide {
+       text-align: center;
+       font-size: 18px;
+       background: #fff;
+       /* Center slide text vertically */
+       display: -webkit-box;
+       display: -ms-flexbox;
+       display: -webkit-flex;
+       display: flex;
+       -webkit-box-pack: center;
+       -ms-flex-pack: center;
+       -webkit-justify-content: center;
+       justify-content: center;
+       -webkit-box-align: center;
+       -ms-flex-align: center;
+       -webkit-align-items: center;
+       align-items: center;
+   }
+   
+   .swiper-slide img {
+       width: 100%;
+   }
+   
+   .swiper-button-next {
+       width: 30px;
+       display: none!important;
+   }
+   
+   .swiper-button-prev {
+       width: 30px;
+       display: none!important;
+   }
+   
+   .brand div {
+       width: 33.333%;
+       float: left;
+       cursor: pointer;
+   }
+   
+   .brand div img {
+       width: 100%;
+   }
+   
+   .brand {
+       overflow: hidden;
+       border-radius: 10px 10px 0 0;
+   }
+   
+   nav {
+       background-color: #144049;
+   }
+   
+   nav a {
+       width: 20%;
+       float: left;
+       text-align: center;
+       text-decoration: none;
+       cursor: pointer;
+   }
+   
+   nav a img {
+       width: 39px;
+       margin: 10px 0;
+   }
+   
+   nav a span {
+       display: block;
+       color: #fff;
+       font-size: 12px;
+   }
+   
+   .content {
+       background-color: #f6f6f6;
+   }
+   
+   .news {
+       width: 95%;
+       margin: 0 auto;
+   }
+   
+   .news a {
+       float: left;
+       text-align: center;
+       text-decoration: none;
+   }
+   
+   .news a:nth-child(1) {
+       width: 50%;
+   }
+   
+   .news a:nth-child(n+2) {
+       width: 25%;
+   }
+   
+   .news a img {
+       width: 100%;
+       margin: 5px 0;
+   }
+   
+   .yard {
+       width: 100%;
+       background-color: #fff;
+   }
+   
+   .yard img {
+       width: 100%;
+   }
+   
+   .gift {
+       width: 95%;
+       margin: 5px auto;
+       background-color: #fff;
+   }
+   
+   .gift .gift-l,
+   .gift .gift-r {
+       width: 50%;
+   }
+   
+   .gift .gift-r {
+       float: right;
+   }
+   
+   .gift .gift-l {
+       float: left;
+   }
+   
+   .gift span {
+       margin-left: 8px;
+       margin-top: 10px;
+       font-weight: 700;
+       font-size: 1rem;
+       line-height: 20px;
+       height: 20px;
+       display: inline-block;
+       max-width: 100%;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       overflow: hidden;
+       color: #45CAFF;
+   }
+   
+   .gift p {
+       margin-left: 8px;
+       margin-top: 0;
+       font-size: 0.8rem;
+   }
+   
+   .gift div {
+       box-sizing: border-box;
+   }
+   
+   .gift div img {
+       float: left;
+       margin-top: 0;
+       width: 90px;
+       margin-left: 20px;
+   }
+   
+   .gift .goods {
+       width: 25%;
+       float: left;
+   }
+   
+   .gift .goods span {
+       color: #000000;
+   }
+   
+   .gift .everyday span {
+       color: #fd2d47;
+   }
+   
+   .gift .goods p {
+       font-size: 0.8rem;
+   }
+   
+   .jd-express {
+       width: 95%;
+       height: 33px;
+       margin: 10px auto;
+       background-color: #ffffff;
+       border-radius: 5px;
+       line-height: 33px;
+   }
+   
+   .jd-express img {
+       width: 20%;
+       padding-left: 20px;
+       float: left;
+       line-height: 33px;
+       height: 33px;
+   }
+   
+   .jd-express a {
+       float: right;
+       cursor: pointer;
+       padding-right: 3%;
+   }
+   
+   .jd-express .recommen {
+       width: 75%;
+       margin-left: 3%;
+       line-height: 33px;
+       height: 33px;
+       font-size: 0.8rem;
+       border-right: 1px solid #ccc;
+   }
+   
+   .jd-express .recommen i {
+       color: red;
+   }
+   
+   .recommend-goods {
+       width: 95%;
+       background-color: #fff;
+       margin: 10px auto;
+       overflow: hidden;
+       /* height: 267px; */
+   }
+   
+   .recommend-goods .pc,
+   .recommend-goods .cloth {
+       width: 50%;
+       display: inline-block;
+       float: left;
+   }
+   
+   .recommend-goods .pc img,
+   .recommend-goods .cloth img {
+       width: 80%;
+       padding: 10px;
+   }
+   
+   .recommend-goods p {
+       font-size: 0.8rem;
+       margin: 0;
+       padding: 0;
+   }
+   
+   .recommend-goods .l {
+       color: red;
+       margin-left: 5px;
+   }
+   
+   .recommend-goods .r {
+       border: 1px solid #ccc;
+       text-align: center;
+       width: 30%;
+       margin-right: 20px;
+       float: right;
+       margin-top: 0;
+       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+       margin-bottom: 10px
+   }
+   
+   .onchangge {
+       width: 100%;
+       height: 76px;
+       background-color: #f6f6f6;
+   }
+   
+   .onchangge a:first-child {
+       padding: 0;
+       width: 20%;
+   }
+   
+   .onchangge a span {
+       color: #000;
+   }
+   
+   .onchangge a span:hover {
+       color: blue;
+   }

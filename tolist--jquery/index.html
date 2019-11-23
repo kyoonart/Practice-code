@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <title>Todo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: #CDCDCD;
+        }
+        
+        header {
+            height: 50px;
+            background: #333;
+            background: rgba(47, 47, 47, 0.98);
+        }
+        
+        section {
+            margin: 0 auto;
+        }
+        
+        label {
+            float: left;
+            width: 100px;
+            line-height: 50px;
+            color: #DDD;
+            font-size: 24px;
+            cursor: pointer;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+        
+        header input {
+            float: right;
+            width: 60%;
+            height: 24px;
+            margin-top: 12px;
+            text-indent: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24), 0 1px 6px rgba(0, 0, 0, 0.45) inset;
+            border: none
+        }
+        
+        input:focus {
+            outline-width: 0
+        }
+        
+        h2 {
+            position: relative;
+        }
+        
+        span {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            padding: 0 5px;
+            height: 20px;
+            border-radius: 20px;
+            background: #E6E6FA;
+            line-height: 22px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        ol,
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        
+        li input {
+            position: absolute;
+            top: 2px;
+            left: 10px;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+        
+        p {
+            margin: 0;
+        }
+        
+        li p input {
+            top: 3px;
+            left: 40px;
+            width: 70%;
+            height: 20px;
+            line-height: 14px;
+            text-indent: 5px;
+            font-size: 14px;
+        }
+        
+        li {
+            height: 32px;
+            line-height: 32px;
+            background: #fff;
+            position: relative;
+            margin-bottom: 10px;
+            padding: 0 45px;
+            border-radius: 3px;
+            border-left: 5px solid #629A9C;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+        }
+        
+        ol li {
+            cursor: move;
+        }
+        
+        ul li {
+            border-left: 5px solid #999;
+            opacity: 0.5;
+        }
+        
+        li a {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            display: inline-block;
+            width: 14px;
+            height: 12px;
+            border-radius: 14px;
+            border: 6px double #FFF;
+            background: #CCC;
+            line-height: 14px;
+            text-align: center;
+            color: #FFF;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        footer {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #666;
+            text-decoration: none;
+            color: #999;
+        }
+        
+        @media screen and (max-device-width: 620px) {
+            section {
+                width: 96%;
+                padding: 0 2%;
+            }
+        }
+        
+        @media screen and (min-width: 620px) {
+            section {
+                width: 600px;
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section>
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+        </section>
+    </header>
+    <section>
+        <h2>正在进行 <span id="todocount"></span></h2>
+        <ol id="todolist" class="demo-box">
+
+        </ol>
+        <h2>已经完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+
+        </ul>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todolist.cn
+    </footer>
+    <script>
+        $(function() {
+            load();
+            $("#title").on('keydown', function(event) {
+                if (event.keyCode === 13) {
+                    var local = getData();
+                    console.log(local);
+                    local.push({
+                        title: $(this).val(),
+                        done: false
+                    });
+                    saveData(local);
+                    load();
+                }
+            })
+            $('ol').on('click', 'a', function() {
+                // alert(11);
+                var data = getData();
+                var index = $(this).attr('id');
+                console.log(index);
+                data.splice(index, 1);
+                console.log(data);
+                saveData(data);
+                load();
+
+
+            })
+
+            $('ul,ol').on('click', 'input', function() {
+                var data = getData();
+                var index = $(this).siblings('a').attr('id'); //拿到兄弟元素的索相当于拿到自己的索引
+                data[index].done = $(this).prop('checked'); //修改属性值
+                saveData(data);
+                load();
+
+            })
+
+            function getData() {
+                var data = localStorage.getItem("todo");
+                if (data !== null) {
+                    // 本地存储里面的数据是字符串格式的 但是我们需要的是对象格式的
+                    return JSON.parse(data);
+                } else {
+                    return [];
+                }
+            }
+
+            function saveData(data) {
+                localStorage.setItem('todo', JSON.stringify(data)); //转换为字符串存在本地
+
+            }
+            // 渲染列表
+            function load() {
+                var data = getData();
+                var todecount = 0; //正在做的事
+                var donecount = 0 // 做完的事情
+                $('ul,ol').empty();
+                $.each(data, function(i, n) {
+                    // 如果属性为done 那么就添加到ul
+                    if (n.done) {
+                        donecount++;
+                        $("ul").prepend("<li><input type='checkbox' checked='checked'><p>" + n.title + "</p> <a href='javascript:;' id=" + i + " ></a></li>");
+                    } else {
+
+                        todecount++
+                        $("ol").prepend("<li><input type='checkbox'><p>" + n.title + "</p> <a href='javascript:;' id=" + i + " ></a></li>");
+                    }
+                })
+                $('#todocount').text(todecount);
+                $('#donecount').text(donecount);
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

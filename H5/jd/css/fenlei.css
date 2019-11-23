@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+    /* background-color: #144049; */
+    /* height: 3000px; */
+}
+
+
+/* 
+img {
+    vertical-align: top;
+} */
+
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.app {
+    width: 100%;
+    height: 47px;
+    background-color: #ccc;
+    border-radius: 12px;
+    /* text-align: center; */
+    line-height: 45px;
+}
+
+.app ul li {
+    width: 16.6667%;
+    float: left;
+    /* margin-right: 30px; */
+    cursor: pointer;
+    overflow: hidden;
+    height: 43px;
+    line-height: 46px;
+    margin-top: 2px;
+}
+
+.app ul li:nth-child(1) {
+    margin-top: 3px;
+}
+
+.app ul li:nth-child(2) {
+    float: left;
+    line-height: 45px;
+    height: 45px;
+}
+
+.app ul li:nth-child(2) img {
+    width: 38%;
+}
+
+.app ul li:nth-child(n+3) img {
+    width: 40%;
+}
+
+.lists {
+    width: 20%;
+    background-color: #f6f6f6;
+    float: left;
+}
+
+.lists li {
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.recommend-goods {
+    width: 75%;
+    float: left;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.recommend-goods div:nth-child(1) {
+    border-radius: 5px;
+    height: 110px;
+    overflow: hidden;
+}
+
+.recommend-goods .bannerimg {
+    width: 100%;
+}
+
+.recommend-goods .bannerimg img {
+    width: 100%!important;
+}
+
+.recommend-goods .item h3 {
+    margin-top: 2px!important;
+    margin: 5px 0 3px 5px;
+}
+
+.recommend-goods .item p {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.recommend-goods .item .delatil {
+    float: left;
+    width: 33.333%;
+    text-align: center;
+}
+
+.recommend-goods .item {
+    box-shadow: 1px 1px 2px #f6f6f6;
+}
+
+.current {
+    background-color: #fff;
+    font-weight: 700;
+}
+
+#tchange {
+    display: none;
+    height: 1500px;
+}
+
+.item {
+    z-index: 111;
+}

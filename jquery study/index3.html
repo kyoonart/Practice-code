@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script src="web.js"></script>
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            background-color: skyblue;
+        }
+        
+        p,
+        .btn {
+            display: inline-block;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul li {
+            list-style: none;
+            border: 1px solid black;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 4px;
+        }
+        
+        ul li:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>输入当前城市:<input type="text" class="city"></p>
+        <button type="submit" class="btn">查询</button>
+        <ul class="ulist">
+            <script type="text/html" id="deviceTem">
+                <li>
+                    城市:{{result.city}}
+                </li>
+                <li>
+                    日期:{{result.date}}
+                </li>
+                <li>
+                    week:{{result.week}}
+                </li>
+                <li>
+                    天气:{{result.weather}}
+                </li>
+                <li>
+                    湿度:{{result.winddirect}}
+                </li>
+            </script>
+        </ul>
+    </div>
+    <script>
+        var city = document.querySelector('.city');
+        var btn = document.querySelector('.btn');
+        var ul = document.querySelector('.ulist');
+        btn.addEventListener('click', function() {
+            prame = city.value;
+            console.log(prame);
+            getDate(prame);
+        })
+
+        function getDate(data) {
+            $.ajax({
+                type: 'get',
+                //url: 'https://api.jisuapi.com/weather/query?appkey=52f5662a7bf98975&city=安康',
+                url: 'https://api.jisuapi.com/weather/query',
+                data: {
+                    appkey: '52f5662a7bf98975',
+                    city: data,
+                },
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function(json) {
+                    var html = template("deviceTem", json)
+                        //var html = template("deviceTem", json);
+                    $('.ulist').html(html);
+                    console.log(json);
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>

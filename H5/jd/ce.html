@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            height: 50px;
+            background: #ccc;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="info"></div>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    <script type="text/javascript">
+        var oInfo = $(".info");
+        var oTop = $(".box").offset().top;
+        var sTop = 0;
+        $(window).scroll(function() {
+            sTop = $(this).scrollTop();
+            oInfo.text(sTop + '-' + oTop); //这一句 只是为了看看数据 没有多大的用处
+            if (sTop >= oTop) {
+                $(".box").css({
+                    "position": "fixed",
+                    "top": "0"
+                });
+            } else {
+                $(".box").css({
+                    "position": "static"
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
