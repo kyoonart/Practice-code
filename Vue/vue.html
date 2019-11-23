@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>vue基础</title>
+</head>
+<div id="app">
+
+    <!-- <p v-text="message+'!'"></p>
+    <input type="button" @click="doit" value="v-on"> -->
+    <h @click="change">{{food}}</h>
+</div>
+
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: "hello Vue444",
+                food: "西红柿",
+            },
+            methods: {
+                doit: function() {
+                    alert('just do it')
+                },
+                change: function() {
+                    this.food += "好好吃!"
+                },
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" @click="change" value="change">
+        <img v-show="isshow" src="../05-京东放大镜效果/img/logo.png" alt="">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isshow: false
+            },
+            methods: {
+                change: function() {
+                    this.isshow = !this.isshow;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html
