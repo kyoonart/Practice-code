@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for='(item,index) in arr'>{{index}}city:{{item}}</li>
+        </ul>
+        <h2 v-for='item in obj'>{{item.name}}</h2>
+        <button @click='add'>add</button>
+        <button @click='reduce'>reduce</button>
+        <input type="text" v-model='message' @keyup.enter='getmessage'>
+        <h2>{{message}}</h2>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                arr: ['xian', 'beijing', 'shanghai', 'shenzhen'],
+                obj: [{
+                    name: "zhangsan"
+                }, {
+                    name: "lisi"
+                }],
+                message: 'how are you'
+
+
+            },
+            methods: {
+                add: function() {
+                    this.obj.push({
+                        name: 'like'
+                    });
+                },
+                reduce: function() {
+                    this.obj.shift();
+                },
+                getmessage: function() {
+                    alert(this.message)
+                }
+            }
+
+        })
+    </script>
+</body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小黑记事本</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            background: #f4f4f4;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .h {
+            color: lavender;
+        }
+        
+        header {
+            height: 50px;
+            background: #333;
+            background: rgba(47, 47, 47, 0.98);
+        }
+        
+        section {
+            text-align: center;
+            margin: 0 auto;
+            height: 50px;
+            line-height: 50px;
+            color: black;
+        }
+        
+        #app {
+            margin: 0 auto;
+            width: 500px;
+            height: 300px;
+            background-color: #ffffff;
+        }
+        
+        #app input {
+            height: 30px;
+            width: 200px;
+            margin: 0;
+        }
+        
+        #app li {
+            margin: 0 auto;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #cccc;
+        }
+        
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;
+        }
+        
+        #app ul li .l1,
+        #app ul li .l2 {
+            float: left;
+        }
+        
+        @media screen and (max-device-width: 620px) {
+            section {
+                width: 96%;
+                padding: 0 2%;
+            }
+        }
+        /* .deleate {
+            float: right;
+            display: none;
+        }
+        */
+        
+        #app .deleate:hover {
+            display: block!important;
+        }
+        
+        @media screen and (min-width: 620px) {
+            section {
+                width: 600px;
+                padding: 0 10px;
+            }
+        }
+        
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="h">小黑记事本</section>
+    </header>
+    <section id="app">
+        <input type="text" placeholder="please input" v-model='inputValue' @keyup.enter='add'>
+        <ul>
+            <li v-for='(item,index) in list'><span class="l1">{{index+1}}</span>
+                <span class="l2">{{item}}</span>
+                <span class="deleate" style="float: right;" @click='remove(index)'>×</s>
+            </li>
+
+        </ul>
+        <span class="left" v-show="list.length!=0">{{list.length}}item left</span>
+                <span class="right" @click='removeall' v-show="list.length!=0">clear</span>
+    </section>
+    <footer>
+        Copyright &copy; 2014 todolist.cn
+    </footer>
+    <script src=" https://cdn.jsdelivr.net/npm/vue/dist/vue.js "></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                list: ['写代码', '吃饭饭', '睡觉觉'],
+                inputValue: '好好学习，天天向上'
+            },
+            methods: {
+                add: function() {
+                    this.list.push(this.inputValue);
+                },
+                remove: function(index) {
+                    this.list.splice(index, 1)
+                },
+                removeall: function() {
+                    this.list = [];
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

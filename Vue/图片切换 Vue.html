@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #mask {
+            width: 721px;
+            height: 455px;
+            background-color: #ccc;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .left,
+        .right {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: #ccc;
+            opacity: .5;
+            color: black;
+            font-size: 30px;
+            text-align: center;
+            transform: translateY(-50%);
+        }
+        
+        .left {
+            left: 0px;
+            top: 50%;
+        }
+        
+        .right {
+            right: 0px;
+            top: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mask">
+        <img :src="imgSrc[index]" alt=" ">
+        <a href="javascript:; " class="left " @click='prve' v-show="index!=0">
+            <</a>
+                <a href="javascript:; " class="right " @click='next' v-show='index<imgSrc.length-1'> > </a>
+    </div>
+    <script>
+        new Vue({
+            el: '#mask',
+            data: {
+                imgSrc: [
+                    'imgs/focus.jpg',
+                    'imgs/focus1.jpg',
+                    'imgs/focus2.jpg',
+                    'imgs/focus3.jpg'
+                ],
+                index: 0,
+            },
+            methods: {
+                prve: function() {
+
+                    this.index--;
+
+                },
+                next: function() {
+
+                    this.index++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
