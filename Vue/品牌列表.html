@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>品牌列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .clearfix::after,
+        .clearfix::before {
+            content: "";
+            display: table;
+        }
+        
+        .clearfix::after {
+            clear: both;
+        }
+        
+        .clearfix {
+            *zoom: 1;
+        }
+        
+        .search .label {
+            float: left;
+        }
+        
+        #app {
+            width: 50%;
+            margin: 0 auto;
+        }
+        
+        .tab {
+            background-color: #ccc;
+            height: 40px;
+            line-height: 40px;
+        }
+        
+        .tab tr th:nth-child(1) {
+            width: 100px;
+        }
+        
+        .tab tr th:nth-child(2) {
+            width: 200px;
+        }
+        
+        .tab tr th:nth-child(3) {
+            width: 300px;
+        }
+        
+        .tab tr th:nth-child(4) {
+            width: 300px;
+        }
+        
+        tbody td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="search clearfix">
+            <label class="label">
+                Id:
+                <input type="text" class="id" v-model="id">
+            </label>
+            <label class="label">
+                Name:
+    <input type="text" class="id" v-model="name">
+                </label>
+            <label class="label">
+            <input type="button" class="id" value="添加" @click="add">
+            </label>
+            <label class="label">
+                搜索：
+                    <input type="text" class="id" v-model='keywords' @keyup.enter="search" id="sea" v-focus>
+                    </label>
+        </div>
+        <table class="tab">
+            <thead class="head">
+                <tr>
+                    <th>Id</th>
+                    <th>name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.time}}</td>
+                    <td><a href="#" @click.prevent='deleate(item.id)'>删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // 自定义指令
+        Vue.directive('focus', {
+            inserted: function(el) {
+                el.focus()
+            }
+
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: "",
+                keywords: '',
+                list: [{
+                    id: 1,
+                    name: '宝马',
+                    time: new Date().toLocaleTimeString()
+                }, {
+                    id: 2,
+                    name: '奥迪',
+                    time: new Date().toLocaleTimeString()
+                }]
+            },
+            methods: {
+                // 添加数据函数
+                add: function() {
+                    var car = {
+                        id: this.id,
+                        name: this.name,
+                        time: new Date().toLocaleTimeString()
+                    };
+                    this.list.push(car);
+                    this.id = this.name = this.time = '';
+
+                },
+                // 删除函数
+                deleate: function(id) {
+                    // 先查找该索引
+                    this.list.some((item, i) => {
+                            if (item.id == id) {
+                                this.list.splice(i, 1);
+                                return true;
+                            }
+                        })
+                        // 第二种方法
+                        // var index = this.list.findIndex(item => {
+                        //     if (item.id == id) {
+                        //         return true;
+                        //     }
+                        //     this.list.splice(index, 1)
+                        // });
+                },
+                // 搜索数据
+                search: function(keywords) {
+                    var newlist = [];
+                    newlist = this.list.filter(item => {
+                        if (item.name.includes(keywords)) {
+                            return true;
+                        }
+                    })
+                    return newlist;
+                }
+
+
+            }
+        })
+    </script>
+</body>
+
+</html>
