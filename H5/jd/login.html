@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/core.js"></script>
+    <title>登录表单</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #144049;
+        }
+        
+        .singup-form {
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, .5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            overflow: hidden;
+        }
+        
+        .singup-form h1 {
+            margin-top: 100px;
+            color: #fff;
+            font-size: 40px;
+        }
+        
+        .singup-form input {
+            display: block;
+            width: 100%;
+            padding: 0 auto;
+            height: 44px;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            border: none;
+        }
+        
+        .txtb {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 6px;
+        }
+        
+        .success {
+            color: green;
+        }
+        
+        .wrong {
+            color: red;
+        }
+        
+        .singup-btn1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: #487eb0;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 14px;
+            border-radius: 44px;
+            cursor: pointer;
+            transition: 0.8s;
+        }
+        
+        .singup-btn {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: #487eb0;
+            color: #fff;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 14px;
+            border-radius: 44px;
+            cursor: pointer;
+            transition: 0.8s;
+        }
+        
+        .singup-btn:hover {
+            transform: scale(0.96);
+        }
+        
+        .singup-form a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            padding: 10px;
+            transition: 0.8s;
+            display: block;
+        }
+        
+        .singup-form:hover {
+            background: rgb(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="singup-form">
+        <form action="">
+            <h1>Log In</h1>
+            <form action="">
+                <input type="text" placeholder="QQ" class="txtb" id="name"><i></i>
+                <input type="text" placeholder="邮箱" class="txtb" id="email"><i></i>
+                <input type="password" placeholder="密码" class="txtb" id="password"><i></i>
+                <span id="msg" style="font-size:14px;color:red"></span><br />
+                <input type="submit" value="登录" class="singup-btn1">
+                <input type="submit" value="创建新账号" class="singup-btn">
+                <a href="jacascript:;">已经有账户了？</a>
+            </form>
+        </form>
+    </div>
+    <script>
+        var qq = document.querySelector("#name");
+        var email = document.querySelector("#email");
+        var password = document.querySelector("#password");
+        var msg = document.querySelector('#msg');
+        var reg = /^[1-9]\d{4,}$/;
+        RegExp(qq, reg);
+
+        function RegExp(ele, reg) {
+            ele.onblur = function() {
+                if (reg.test(this.value)) {
+                    msg.className = 'success';
+                    msg.innerHTML = '格式正确'
+                } else {
+                    msg.className = 'wrong';
+                    msg.innerHTML = '格式错误,请重新输入'
+                }
+            }
+        };
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            // 先隐藏错误提示
+            $("#msg").css("display", "none");
+            // 点击登录发送请求
+            $(".singup-btn1").click(function() {
+                userLogin();
+            });
+        });
+
+        function userLogin() {
+            var userName = $("#name").val();
+            var userPwd = $("#password").val();
+            if (userName != "" && userPwd != "") {
+                $.post("postUrl", {
+                    "userName": userName,
+                    "userPwd": userPwd
+                }, function(data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        // 验证成功 跳转到主页
+                        window.location.href = "index.html";
+                    } else {
+                        $("#msg").css("display", "block");
+                        $("#msg").text("密码错误!");
+                        $("#name").val("");
+                    }
+                });
+            } else {
+                $("#msg").css("display", "block");
+                $("#msg").text("用户名密码不能为空!!");
+            }
+
+        }
+    </script>
+    </script>
+</body>
+
+</html>

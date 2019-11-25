@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#msg").css("display", "none");
+            $("#btnLogin").click(function() {
+                userLogin();
+            });
+        });
+
+        function userLogin() {
+            var userName = $("#txtUserName").val();
+            var userPwd = $("#txtUserPwd").val();
+            if (userName != "" && userPwd != "") {
+                $.post("UserLogin.ashx", {
+                    "userName": userName,
+                    "userPwd": userPwd
+                }, function(data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        window.location.href = "/UserInfoList.aspx";
+                    } else {
+                        $("#msg").css("display", "block");
+                        $("#msg").text(serverData[1]);
+                        $("#txtUserName").val("");
+                    }
+
+                });
+
+            } else {
+                $("#msg").css("display", "block");
+                $("#msg").text("用户名密码不能为空!!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    用户名:<input type="text" name="txtName" id="txtUserName" /> 密码:
+    <input type="password" name="txtPWD" id="txtUserPwd" /><br />
+    <input type="button" value="登录" id="btnLogin" />
+    <span id="msg" style="font-size:14px;color:red"></span><br />
+</body>
+
+</html>
