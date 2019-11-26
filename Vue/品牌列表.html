@@ -97,7 +97,7 @@
                 <tr v-for="item in search(keywords)" :key="item.id">
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
-                    <td>{{item.time}}</td>
+                    <td v-fontsize="'14px'">{{item.time}}</td>
                     <td><a href="#" @click.prevent='deleate(item.id)'>删除</a></td>
                 </tr>
             </tbody>
@@ -169,6 +169,12 @@
                 }
 
 
+            },
+            //定义私有指令
+            directives: {
+                fontsize: function(el, binding) {
+                    el.style.fontSize = parseInt(binding.value) + 'px'
+                }
             }
         })
     </script>
