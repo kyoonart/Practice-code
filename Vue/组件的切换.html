@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>组件的切换</title>
+    <style>
+        .v-enter,
+        .v-leave-to {
+            opacity: 0.5;
+            transform: translateX(150px);
+        }
+        
+        .v-enter-active,
+        .v-leave-active {
+            opacity: 0.3;
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 原始方法 -->
+    <!-- <div id="app">
+        <a href="" @click.prevent="flag=true">登录</a>
+        <a href="" @click.prevent='flag=false'>注册</a>
+        <login v-if='flag'></login>
+        <resgister v-else='flag'></resgister>
+    </div> -->
+    <!-- 使用Vue提供的方法 -->
+    <div id="app">
+        <a href="" @click.prevent="tagname='login' ">登录</a>
+        <a href="" @click.prevent="tagname='resgister' ">注册</a>
+        <!-- Vue提供了 component 来展示对应名称的组件 他是一个占位符 ：is属性，可以用来指定要展示的组件的名称 -->
+        <transition mode="out-in">
+            <!--添加组件切换动画效果 -->
+            <component :is="tagname"></component>
+        </transition>
+    </div>
+    <script>
+        Vue.component('login', {
+            template: '<h1> 登录</h1>'
+        });
+        Vue.component('resgister', {
+            template: '<h1> 注册界面</h1>'
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                tagname: "login",
+            }
+        })
+    </script>
+</body>
+
+</html>

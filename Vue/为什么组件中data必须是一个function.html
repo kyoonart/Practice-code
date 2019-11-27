@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <template id="app1">
+        <div><input type="button" value="+1" @click="add">
+            <h3>{{count}}</h3></div>
+    </template>
+    <div id="app">
+        <add1></add1>
+        <br>
+        <add1></add1>
+        <add1></add1>
+        <add1></add1>
+        <add1></add1>
+    </div>
+    <script>
+        Vue.component('add1', {
+            template: '#app1',
+            methods: {
+                add: function() {
+                    this.count++;
+                }
+            },
+            data: function() {
+                return {
+                    count: 0
+                }
+            }
+        })
+        new Vue({
+            el: '#app',
+            methods: {
+                add: function() {
+                    this.count++
+                }
+            },
+            // components: {
+            //     add1: {
+            //         template: '#app1',
+            //         data: function() {
+            //             return {
+            //                 count: 0
+            //             }
+            //         },
+            //     }
+            // }
+        })
+    </script>
+</body>
+
+</html>
