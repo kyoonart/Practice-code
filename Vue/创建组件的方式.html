@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <template id="temp">
+        <div><h1>这是最牛逼的</h1>
+            <h2>hhh</h2>
+            </div>
+    </template>
+
+    <div id="app">
+        <mycom></mycom>
+        <!--渲染 -->
+        <mycom2>111</mycom2>
+        <mycom3></mycom3>
+    </div>
+    <script>
+        // var com1 = Vue.extend({
+        //     template: ' <h3>hello Vue</h3>' //通过template属性，指定了组件要展示的HTML结构
+
+        // });
+        // Vue.component('mycom', com1) //引用 如果定义全局组件的时候，组件名称使用了驼峰命名，则在引用组件的时候，需要把大写的驼峰名称改为小写的并且加上“-”
+
+        // 也可以直接写成这样   
+        Vue.component('mycom', Vue.extend({
+            template: ' <h3>hello Vue</h3>' //通过template属性，指定了组件要展示的HTML结构
+        }));
+        //最简单的是这样
+        Vue.component('mycom2', {
+                template: ' <h2>hello Vue 这是简写方式渲染出来的</h2>'
+            })
+            // 第三种方式
+        Vue.component('mycom3', {
+            template: '#temp'
+        })
+        new Vue({
+            el: '#app',
+        })
+    </script>
+</body>
+
+</html>

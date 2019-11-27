@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            width: 100%;
+            list-style: none;
+            border: 1px dashed #655;
+            margin: 5px;
+            line-height: 30px;
+            padding-left: 5px;
+        }
+        
+        li:hover {
+            background-color: hotpink;
+            transition: all 1s;
+        }
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: .5;
+            transform: translateY(100px);
+        }
+        /* 入场动画时间段， */
+        /* 离场动画时间段 */
+        
+        .v-enter-active,
+        .v-leave-active {
+            opacity: .4;
+            transition: all 0.8s ease;
+        }
+        /* v-move 和v-leave-avtive配合使用可以实现列表渐渐的飘上来的效果 */
+        
+        .v-move {
+            transition: all 0.5s;
+        }
+        
+        .v-leave-active {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        ID:
+        <input type="text" v-model="id"> name:
+        <input type="text" v-model="name">
+        <input type="button" value="添加" @click="add">
+
+        <transition-Group appear tag='ul'>
+            <li v-for="(item,index) in list" :key="item.id" @click='del(index)'>
+                <span>{{item.id}}------</span>
+                <span>{{item.name}}</span>
+            </li>
+        </transition-Group>
+
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            id: "",
+            name: '',
+            data: {
+                list: [{
+                    id: 1,
+                    name: '什么呢'
+                }, {
+                    id: 2,
+                    name: 'sss'
+                }, {
+                    id: 3,
+                    name: 'vsvsa'
+                }]
+            },
+            methods: {
+                add: function() {
+                    this.list.push({
+                        id: this.id,
+                        name: this.name
+                    })
+                    this.id = this.name = ''
+                },
+                del: function(index) {
+                    this.list.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

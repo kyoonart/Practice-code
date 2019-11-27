@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .ball {
+            margin: 20px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #97fafa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="add" @click="flag=!flag">
+        <!-- javaScript钩子函数 -->
+        <transition v-on:before-enter="beforeEnter" v-on:enter="enter" v-on:after-enter="afterEnter">
+            <div class="ball" v-if="flag"></div>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+            },
+            methods: {
+                // 动画钩子函数的第一个参数el :表示要执行动画的Dom那个元素
+                beforeEnter: function(el) {
+                    // 定义起始位置
+                    el.style.transform = "translate(20px,20px)"
+                },
+                enter: function(el, done) {
+                    el.offsetWidth;
+                    el.style.transform = "translate(150px,300px)";
+                    el.style.transition = "all 1s ease";
+                    done()
+                },
+                afterEnter: function(el) {
+                    this.flag = !this.flag
+                        // el.style.display = 'none'
+                        // 调用后还是会留在此位置 下次点击时会启动下一次生命周期 会一瞬间回到起始位置
+
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

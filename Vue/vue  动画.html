@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- 引入animate.css动画 -->
+    <title>Document</title>
+    <style>
+        /* 这是一个时间点 是动画离开之后 离开的终止状态 此时动画已经结束 */
+        /* .v-enter,
+        .v-leave-to {
+            opacity: .5;
+            transform: translateY(100px);
+        }
+        /* 入场动画时间段， */
+        /* 离场动画时间段 */
+        /* .v-enter-active,
+        .v-leave-active {
+            opacity: .4;
+            transition: all 0.8s ease;
+        }
+         */
+    </style>
+</head>
+
+<body>
+    <!-- 此时动画很快 -->
+    <!-- 需要使用过渡类名实现动画 -->
+    <div id="app">
+        <input type="button" value="toggle" @click="flag=!flag">
+        <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+            <h3 v-if='flag'>hello Vue</h3>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                flag: false
+            }
+
+
+        })
+    </script>
+
+
+</body>
+
+</html>
