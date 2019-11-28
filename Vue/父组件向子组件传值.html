@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <title>Document</title>
+</head>
+
+
+<body>
+    <div id="app">
+        <com1 v-bind:prentmsg="msg"></com1>
+        <!-- 使用父组件中的值必须要先在这使用v-bind命令  相当于自定义属性-->
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '这是父组件',
+            },
+            components: {
+                com1: {
+                    data: function() {
+                        return {
+                            content: 'aqq'
+                        }
+                    },
+                    template: '<a href="#">{{prentmsg}}</a>',
+                    props: ['prentmsg'] //通过父组件传来是数据必须在这里定义一下 这里的数据值是只读的  最好不要修改
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -36,10 +36,10 @@
                 // 动画钩子函数的第一个参数el :表示要执行动画的Dom那个元素
                 beforeEnter: function(el) {
                     // 定义起始位置
-                    el.style.transform = "translate(20px,20px)"
+                    el.style.transform = "translate(0px,20px)"
                 },
                 enter: function(el, done) {
-                    el.offsetWidth;
+                    el.offsetWidth; // 只有加了这行代码才可以看到动画效果
                     el.style.transform = "translate(150px,300px)";
                     el.style.transition = "all 1s ease";
                     done()

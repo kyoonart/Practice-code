@@ -37,6 +37,7 @@
         <a href="" @click.prevent="tagname='resgister' ">注册</a>
         <!-- Vue提供了 component 来展示对应名称的组件 他是一个占位符 ：is属性，可以用来指定要展示的组件的名称 -->
         <transition mode="out-in">
+            <!-- 先进去再出来 mode="out-in" -->
             <!--添加组件切换动画效果 -->
             <component :is="tagname"></component>
         </transition>
