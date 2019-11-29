@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='getElement'>parse</button>
+        <h2 ref='myh3'>这是操作Vuedom获得的数据</h2>
+        <login ref='login' @click='log'></login>
+
+    </div>
+    <script>
+        var login = {
+            template: "<p>登录</p>",
+            data() {
+                return {
+                    msg: 'son msg',
+                }
+            },
+            methods: {
+                log() {
+                    console.log(1111);
+
+
+                }
+            }
+        }
+        var app = new Vue({
+                el: '#app',
+                methods: {
+                    getElement: function() {
+                        // console.log(this.$refs.myh3.innerText);
+                        console.log(this.$refs.login.msg);
+                        this.$refs.login.log()
+
+                    }
+                },
+                components: {
+                    login
+                }
+            })
+            //  console.log(app);
+    </script>
+</body>
+
+</html>

@@ -35,18 +35,14 @@
                     this.$emit('func', this.song) // 触发调用的意思 第二个参数 实现传参
                 }
             },
-
         }
         var app = new Vue({
             el: '#app',
-            data: {
-
-            },
+            data: {},
             methods: {
                 show: function(data) {
                     console.log('这是父组件传递过来的---' + data);
                     console.log(data);
-
                     // ~~~cao i am a sb
                 }
             },
