@@ -1,10 +1,6 @@
 # 前端学习笔记
 
-来源于黑马程序员
-
-建议查看PDF版本，点击目录可以快速跳转。
-
-markdown版本建议用Typora打开
+点击目录可以快速跳转。
 
 目前已经有的笔记包括：
 
@@ -22,8 +18,4 @@ markdown版本建议用Typora打开
 
 [Web APIs笔记](https://github.com/babbittry/Front-end-notes/blob/master/Web%20APIs-notes/Web%20APIs.md)
 
-[webpack笔记](https://github.com/babbittry/Front-end-notes/blob/master/Webpack-notes/webpack3%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)
 
-很多都还没有更新完成，还会持续更新中，目前来看应该不会鸽。
-
-共勉。
