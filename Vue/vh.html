@@ -6,13 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .main {
+            width: 300px;
+        }
+        
+        .left {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            float: left;
+            padding: 4px;
+            border: 2px solid black;
+        }
+        
+        .right {
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="main">
+        <div class="left">你好</div>
+        <div class="right">撒是阿巴斯不满你 男的呢欧赔，排摸摸摸磨磨磨磨默默哦m哇啊啊，撒是阿巴斯不满你 男的呢欧赔，排摸摸摸磨磨磨磨默默哦m哇啊啊撒是阿巴斯不满你 男的呢欧赔，排摸摸摸磨磨磨磨默默哦m哇啊啊 </div>
+    </div>
     <script>
         var a = 123;
         a = a + ''
         console.log(a.split(",").reverse());
+        console.log(typeof null);
+        console.log(0.1 + 0.2);
+        console.log(Math.floor(5 / 2));
+        console.log(Math.PI);
+        var arr = ['j', 'o', 'k'];
+        console.log(arr.join('-'));
+        console.log(arr.toString());
+        var hello = () => {
+                console.log(this.a);
+
+            }
+            (function foo(i) {
+                if (i === 3) {
+                    console.log(i);
+
+                } else {
+                    foo(++i);
+                    console.log(i);
+
+                }
+            }(0));
+
+        // 如果只看这个函数，谁都无法确认 `this` 是谁，因为缺乏“上下文”
+        function someFunction() {
+            console.log(this.xxx)
+        }
+
+        // 解释器在此情形下会将 `this` 视作 `window` 对象（浏览器中）
+        // 由于 `window.xxx` 并不存在，所以会输出 `undefined`
+        someFunction() // undefined
+
+        // 然而，一些方法可以帮助我们指明“上下文”，于是就不会含糊不清；比如：
+        var test = {
+            xxx: 'hello'
+        }
+
+        someFunction.call(test) // "hello"
+
+        // hello();
     </script>
 </body>
 
