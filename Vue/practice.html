@@ -74,6 +74,44 @@
         someFunction.call(test) // "hello"
 
         // hello();
+        //递归遍历数据
+        var data = [{
+            id: 1,
+            name: 'kim',
+            goods: {
+                id: 11,
+                gg: 18,
+                mm: 33
+            },
+        }, {
+            id: 2,
+            name: 'limmm'
+        }];
+        var data = [{
+            id: 1,
+            name: 'kim',
+            goods: {
+                id: 11,
+                gg: 18,
+                mm: 33
+            },
+        }, {
+            id: 2,
+            name: 'limmm'
+        }];
+
+        function getId(josn, id) {
+            josn.forEach(function(item) {
+                if (item.id === id) {
+                    console.log(item);
+                } else if (item.goods && item.goods.length > 0) {
+                    getId(item.goods, id)
+                }
+            })
+        }
+        getId(data, 1);
+        getId(data, 2)
+        console.log([...arr]);
     </script>
 </body>
 
