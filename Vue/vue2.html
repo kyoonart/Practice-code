@@ -22,7 +22,7 @@
             methods: {
                 start() {
 
-                    axios.post("http://localhost:8080/find").then(function(res) {
+                    axios.get("http://localhost:8080/find").then(function(res) {
                             console.log(res);
                         },
                         function(err) {
