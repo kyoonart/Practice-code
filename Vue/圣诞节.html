@@ -111,6 +111,11 @@
             z-index: 1;
         }
         
+        .tree div:nth-child(6) {
+            transform: translateY(-300px) scale(0.08);
+            z-index: 1;
+        }
+        
         .tree div span:nth-child(2):before {
             content: "";
             position: absolute;
@@ -125,7 +130,7 @@
             border-bottom-right-radius: 50% 20%;
         }
         
-        .sonw {
+        .snow {
             position: absolute;
             top: 0;
             left: 0;
@@ -134,7 +139,7 @@
             overflow: hidden;
         }
         
-        .sonw .sonw1 {
+        .snow .snow1 {
             position: absolute;
             top: 0;
             left: 0;
@@ -147,7 +152,7 @@
             transform: scale(2);
         }
         
-        .sonw .sonw2 {
+        .snow .snow2 {
             position: absolute;
             top: 0;
             left: 0;
@@ -161,7 +166,7 @@
             filter: blur(2px);
         }
         
-        .sonw .sonw3 {
+        .snow .snow3 {
             position: absolute;
             top: 0;
             left: 0;
@@ -186,12 +191,16 @@
 </head>
 
 <body>
-    <div class="sonw">
-        <div class="sonw1"></div>
-        <div class="sonw2"></div>
-        <div class="sonw3"></div>
+    <div class="snow">
+        <div class="snow1"></div>
+        <div class="snow2"></div>
+        <div class="snow3"></div>
     </div>
     <div class="tree">
+        <div>
+            <span></span>
+            <span></span>
+        </div>
         <div>
             <span></span>
             <span></span>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .boxs .middle {
+            width: 1500px;
+            height: 100px;
+            /* background: #dad; */
+        }
+        
+        .boxs .right {
+            width: 200px;
+            height: 100px;
+            background: #f34;
+        }
+        
+        .boxs .left {
+            width: 200px;
+            height: 100px;
+            background: #343434;
+        }
+        
+        .middle,
+        .left,
+        .right {
+            float: left;
+        }
+        
+        .middle {
+            padding-right: 200px;
+        }
+        
+        .left {
+            z-index: 7;
+            margin-right: -900px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="boxs">
+        <div class="middle"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script>
+        // var numm = "popot pot pots spop"
+        // console.log(numm.replace(/pot/g, "top"));
+        // console.log(numm.split(''));
+        // var entries = [1, [2, 5],
+        //     [6, 7], 9
+        // ];
+        // var flag = [].concat(...entries);
+        // for (var i = 0; i < flag.length; i++) {
+
+        //     console.log(flag[i]);
+        // }
+        let ary = [1, [2, [3, [4, [4, 5], 5]]], 6]; // -> [1, 2, 3, 4, 5, 6]
+        // let str = ary.flat(ary)
+        // console.log(str);
+        // let result = [];
+        // let fn = function(ary) {
+        //     for (let i = 0; i < ary.length; i++) {
+        //         let item = ary[i];
+        //         if (Array.isArray(ary[i])) {
+        //             fn(item);
+        //         } else {
+        //             result.push(item);
+        //         }
+        //     }
+        // }
+        //只要有一个元素有数组，那么循环继续
+        while (ary.some(Array.isArray)) {
+            ary = [].concat(...ary);
+        }
+
+        for (let i = 0; i < ary.length; i++) {
+            console.log(ary[i]);
+        }
+    </script>
+</body>
+
+</html>
