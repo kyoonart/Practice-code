@@ -57,10 +57,16 @@
                 },
                 methods: {
                     add: function() {
+
                         this.num++;
                     },
                     reduce: function() {
-                        this.num--;
+                        if (this.num <= 0) {
+                            this.num = 0;
+                        } else {
+                            this.num--;
+                        }
+
                     }
                 }
             })
