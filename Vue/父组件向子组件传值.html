@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
-    </script>
+    <script src="vue.js"></script>
     <title>Document</title>
 </head>
 
 <body>
+
     <div id="app">
+
         <com1 v-bind:prentmsg="msg"></com1>
         <!-- 使用父组件中的值必须要先在这使用v-bind命令  相当于自定义属性-->
     </div>
@@ -19,7 +20,7 @@
         new Vue({
             el: '#app',
             data: {
-                msg: '这是父组件',
+                msg: '这是父组件传递的',
             },
             components: {
                 com1: {
@@ -28,7 +29,7 @@
                             content: 'aqq'
                         }
                     },
-                    template: '<a href="#">{{prentmsg}}</a>',
+                    template: "<p>{{prentmsg}}</p>",
                     props: ['prentmsg'] //通过父组件传来是数据必须在这里定义一下 这里的数据值是只读的  最好不要修改
                 }
             }
