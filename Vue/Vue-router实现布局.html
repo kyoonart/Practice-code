@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="vue">
+        <router-view></router-view>
+        <router-view name="left"></router-view>
+        <router-view name="right"></router-view>
+    </div>
+    <script>
+        var header = {
+            template: '<h1>这是header区域</h1>'
+        }
+        var left = {
+            template: '<h1>这是left区域</h1>'
+        }
+        var right = {
+            template: '<h1>这是right区域</h1>'
+        }
+        var router = new VueRouter({
+            routes: [
+                //     path: '/',
+                //     component: header
+                // }, {
+                //     path: '/left',
+                //     component: left
+                // }, {
+                //     path: '/right',
+                //     component: right
+                {
+                    path: '/',
+                    components: {
+                        default: header,
+                        left: left,
+                        right: right
+                    }
+                }
+            ]
+
+        })
+
+        var app = new Vue({
+            el: '#vue',
+            data: {},
+            methods: ({}),
+            router,
+
+        })
+    </script>
+</body>
+
+</html>

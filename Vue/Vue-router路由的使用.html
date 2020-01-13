@@ -10,6 +10,11 @@
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
     <title>Document</title>
+    <style>
+        .lll {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,19 +22,30 @@
     <div id="app">
         <a href="#/login">登录</a>
         <a href="#/register">注册</a>
-        <router-view></router-view>
+        <div class="lll">
+            <router-view></router-view>
+        </div>
     </div>
     <script>
         var login = {
-            template: '<h1>登录组件</h1>',
+            template: '<h1>登录组件-----{{ $route.query.id }}</h1>',
+            data() {
+                return {
+                    msg: 123,
+                }
+            }
         };
         var register = {
             template: '<h1>注册组件</h1>',
         }
         var routers = new VueRouter({
             routes: [{
-                path: '/login',
+
+                path: "/login",
                 component: login
+            }, {
+                path: '/',
+                redirect: '/login',
             }, {
                 path: '/register',
                 component: register
