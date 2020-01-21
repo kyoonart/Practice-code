@@ -26,19 +26,38 @@
             }
         }); -->
     <script>
-        function swap(a, b) {
-            [a, b] = [b, a];
-            return [a, b];
-        }
-        console.log(swap(5, 4));
-        for (const key in object) {
-            if (object.hasOwnProperty(key)) {
-                const element = object[key];
-                console.log(element);
+        // function swap(a, b) {
+        //     [a, b] = [b, a];
+        //     return [a, b];
+        // }
+        // console.log(swap(5, 4));
+        // for (const key in object) {
+        //     if (object.hasOwnProperty(key)) {
+        //         const element = object[key];
+        //         console.log(element);
 
 
+        //     }
+        // }
+        var x = 11;
+        var obb = {
+            x: 222,
+            y: {
+                x: 333,
+                obc: function f() {
+                    console.log(this)
+                    var x = 111;
+                    var obj = {
+                        x: 22,
+                        say: () => {
+                            console.log(this.x);
+                        }
+                    }
+                    obj.say()
+                }
             }
         }
+        obb.y.obc();
     </script>
 </body>
 
