@@ -1,0 +1,21 @@
+<view class="container">
+<view class="search">
+<image class="" src="../../images/plus.png" bindtap="addTodoHandle" />
+
+<input type="text" placeholder="请添加要待办的事情" value="{{addText}}" bindchange="inputChangeHandle" bindconfirm="addTodoHandle" />
+</view>
+<view class="todos">
+<view class="item{{item.completed? ' completed':' '}}" wx:for='{{todos}}' wx:key="{{index}}" data-index="{{index}}" bindtap="toggleTodoHandle" >
+<icon size="18" type="{{item.completed?'success':'circle'}}" />
+<text class="">{{item.name}}</text>
+<icon size="18" type="clear" catchtap="removeTodoHandle" data-index="{{ index }}" />
+</view>
+</view>
+<block wx:if="{{todos.length}}">
+<view class="footer">
+<text bindtap="toggleAll">Toggle all</text>
+<text wx:if="{{leftCount}}">{{leftCount}}{{leftCount>1?'items':'item'}}left</text>
+<text bindtap="clearCompleted">Clear completed</text>
+</view>
+</block>
+</view>
