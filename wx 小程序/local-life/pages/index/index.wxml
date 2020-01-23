@@ -1,0 +1,46 @@
+<swiper class="slider">
+<swiper-item ><image src="/assets/images/banner-01.png" mode="aspectFill"/></swiper-item>
+<swiper-item ><image src="/assets/images/banner-02.png" mode="aspectFill"/></swiper-item>  
+</swiper>
+<view class="girds">
+<view class="item">
+  <image src="/assets/icons/grid-01.png"/>
+  <text>美食</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-02.png"/>
+  <text>洗浴足疗</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-03.png"/>
+  <text>结婚</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-04.png"/>
+  <text>KTV</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-05.png"/>
+  <text>找工作</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-06.png"/>
+  <text>辅导</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-07.png"/>
+  <text>汽车保养</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-08.png"/>
+  <text>租房</text>
+</view>
+<view class="item">
+  <image src="/assets/icons/grid-09.png"/>
+  <text>装修</text>
+</view>
+</view>
+<view class="links">
+<image src="/assets/images/link-01.png" />
+<image src="/assets/images/link-02.png" />
+</view>
