@@ -1,0 +1,10 @@
+POST http://dummy.restapiexample.com/api/v1/create HTTP/1.1
+content-type: application/json
+
+{
+    "name":"Hendry",
+    "salary":"61888",
+    "age":"26"
+}
+### 测试接口
+GET https://api.zbztb.cn/api/public/v1/home/catitems
