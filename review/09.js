@@ -49,4 +49,4 @@ function dec2bin(decNumer) {
     }
     return binayriStrng
 }
-console.log(dec2bin(3));
+console.log(typeof(dec2bin(3)));
