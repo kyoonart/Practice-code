@@ -27,4 +27,3 @@ var sortArrayByParityII = function(A) {
     })
     return arr
 };
-// @lc code=end
