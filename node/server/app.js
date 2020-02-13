@@ -18,6 +18,4 @@ app.on('request', (req, res) => {
     }
 });
 app.listen('3000');
-
-
-console.log('网站服务器启动成功');
+console.log('网站服务器启动成功')
