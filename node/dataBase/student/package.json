@@ -1,0 +1,21 @@
+{
+  "name": "student",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "dateformat": "^3.0.3",
+    "mongoose": "^5.9.0",
+    "querystring": "^0.2.0",
+    "router": "^1.3.4",
+    "serve-static": "^1.14.1",
+    "server-static": "^2.0.5"
+  }
+}

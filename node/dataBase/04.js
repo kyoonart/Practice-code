@@ -36,4 +36,3 @@ Course.create({
 })
 
 // course.save()
-csc
