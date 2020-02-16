@@ -78,7 +78,7 @@ class Compile {
         // console.log(this.el);
         // 1 获取文档碎片对象，放入内存中会减少页面的回流和重绘
         const fragment = this.node2Fragment(this.el);
-        console.log(fragment);
+        // console.log(fragment);
         //  2 编译模板
         this.compile(fragment);
         //3 追加子元素到根元素
