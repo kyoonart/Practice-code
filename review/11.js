@@ -1,3 +1,4 @@
+// 选择排序
 function sort(arr) {
     let len = arr.length;
     let minInx = null;
