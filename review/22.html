@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <div><button id='btn'>点击</button></div>
     <script>
         var EventUtil = {
-            addHandler: function(element, type, handler) {
+            addHandler: function (element, type, handler) {
                 if (element.addEventListener) {
                     element.addEventListener(type, handler, false);
                 } else if (element.attachEvent) {
@@ -19,7 +20,7 @@
                     element["on" + type] = handler;
                 }
             },
-            removeHandler: function(element, type, handler) {
+            removeHandler: function (element, type, handler) {
                 if (element.removeEventListener) {
                     element.removeEventListener(type, handler, false);
                 } else if (element.detachEvent) {
@@ -29,27 +30,27 @@
                 }
             },
 
-            getEvent: function(event) {
+            getEvent: function (event) {
                 return event ? event : window.event;
             },
-            getTarget: function(event) {
+            getTarget: function (event) {
                 return event.target || event.srcElement;
             },
-            preventDefault: function(event) {
+            preventDefault: function (event) {
                 if (event.preventDefault) {
                     event.preventDefault();
                 } else {
                     event.returnValue = false;
                 }
             },
-            stopPropagation: function(event) {
+            stopPropagation: function (event) {
                 if (event.stopPropagation) {
                     event.stopPropagation();
                 } else {
                     event.cancelBubbles = true;
                 }
             },
-            getRelatedTarget: function(event) {
+            getRelatedTarget: function (event) {
                 if (event.relatedTarger) {
                     return event.relatedTarget;
                 } else if (event.toElement) {
@@ -65,17 +66,17 @@
         }
         var hander = {
             message: "Event handled",
-            handleClick: function(e) {
+            handleClick: function (e) {
                 alert(this.message)
             }
         }
         var btn = document.getElementById('btn')
-            // btn.onclick = function() {
-            //     hander.handleClick()
-            // }
-            // btn.addEventListener('click', function() {
-            //     hander.handleClick()
-            // })
+        // btn.onclick = function() {
+        //     hander.handleClick()
+        // }
+        // btn.addEventListener('click', function() {
+        //     hander.handleClick()
+        // })
         EventUtil.addHandler(btn, 'click', hander.handleClick)
     </script>
 </body>
