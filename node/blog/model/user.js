@@ -2,9 +2,9 @@
 // 引入mongoose第三方模块
 const mongoose = require('mongoose');
 // 导入bcrypt
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 // 引入joi模块
-const Joi = require('joi');
+// const Joi = require('joi');
 // 创建用户集合规则
 const userSchema = new mongoose.Schema({
     username: {
@@ -52,7 +52,7 @@ async function createUser() {
     });
 }
 
-// createUser();
+createUser();
 
 // 验证用户信息
 const validateUser = user => {
