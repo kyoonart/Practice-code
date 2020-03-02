@@ -11,4 +11,4 @@ function create() {
         // 确保 new 出来的是个对象
     return typeof result === 'object' ? result : obj
 }
-let a = create(23)
+let a = new create(23)
