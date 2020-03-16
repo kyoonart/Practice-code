@@ -1,7 +1,6 @@
 function defineReactive(obj, key, val) {
     /* 一个Dep类对象 */
     const dep = new Dep();
-
     Object.defineProperty(obj, key, {
         enumerable: true,
         configurable: true,
