@@ -2,7 +2,7 @@ function IsBalanced_Solution(pRoot) {
     // write code here
     if (!pRoot) return true;
     if (Math.abs(TreeDep(pRoot.left) - TreeDep(pRoot.right) > 1)) return false;
-    return IsBalanced_Solution(pRoot.left) && IsBalanced_Solution.(pRoot.right)
+    return IsBalanced_Solution(pRoot.left) && IsBalanced_Solution(pRoot.right)
 }
 
 function TreeDep(root) {

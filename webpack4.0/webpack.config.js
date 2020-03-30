@@ -2,7 +2,9 @@ const path = require('path')
 const htmlwebpackPlugin = require('html-webpack-plugin')
 const htmlPlugin = new htmlwebpackPlugin({
     template: './src/index.html', //要复制的路径
-    filename: 'index.html' // 生成的文件名称
+    filename: 'index.html'
+        // 生成的文件名称
+        // loading: loading
 })
 module.exports = {
     mode: 'development',

@@ -1,7 +1,6 @@
 <template>
-  2333
+ <div> 2333</div>
 </template>
-
 <script>
     export default {
       
