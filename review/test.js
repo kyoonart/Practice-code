@@ -41,16 +41,17 @@
 //     if (start > low + 1) { quickSort(arr, low, start - 1) };
 //     if (end < high - 1) { quickSort(arr, end + 1, high) };
 //     return arr;
+// // }
+// let a = {
+//     age: 1,
+//     jobs: {
+//         first: 'FE'
+//     }
 // }
-let a = {
-    age: 1,
-    jobs: {
-        first: 'FE'
-    }
-}
-a.jobs.first = 'native';
-let b = JSON.parse(JSON.stringify(a))
+// a.jobs.first = 'native';
+// let b = JSON.parse(JSON.stringify(a))
 
-console.log(b) // FE
+// console.log(b) // FE
 
-console.log(a instanceof Object);
+// console.log(a instanceof Object);
+console.log(9007199254740995 n);
