@@ -19,8 +19,6 @@ function jsonp(url, jsponCallback, success) {
     document.body.appendChild(script)
 }
 
-
-
 const jsonp = ({ url, params, callbackName }) => {
     const generateURL = () => {
         let dataStr = '';
