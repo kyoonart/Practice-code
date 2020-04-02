@@ -17,7 +17,7 @@ function clone(target) {
     }
     return cloneTarget;
 }
-//  深拷贝  递归  解决了数组问题但没有解决循环引用问题
+//  深拷贝  递归  解决了数组问题但没有解决循环引用问题  可以拷贝函数
 function clone(target) {
     if (typeof target === 'object') {
         let cloneTarget = Array.isArray(target) ? [] : {};
@@ -33,7 +33,7 @@ console.log(clone(target));
 
 // var o = {};
 // console.log(Deepcopy(o, target));
-
+//  函数问题没有解决  
 function Deepcopy(newobj, obj) {
     for (var key in obj) {
         var item = obj[key]; //先拿到对象的值
@@ -52,3 +52,15 @@ function Deepcopy(newobj, obj) {
     }
     return newobj;
 }
+let a = {
+    a: 3,
+    b: function() {
+        console.log('xxx');
+        let c = 222;
+    },
+    c: {
+        a: 2
+    }
+}
+let b = clone(a)
+console.log(b);

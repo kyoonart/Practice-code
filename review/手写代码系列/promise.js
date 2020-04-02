@@ -112,27 +112,27 @@ function resolvePromise(promise2, x, resolve, reject) {
     }
 }
 //resolve方法
-Promise.resolve = function (val) {
-    return new Promise((resolve, reject) => {
-        resolve(val)
-    });
-}
-//reject方法
-Promise.reject = function (val) {
-    return new Promise((resolve, reject) => {
-        reject(val)
-    });
-}
-//race方法 
-Promise.race = function (promises) {
-    return new Promise((resolve, reject) => {
-        for (let i = 0; i < promises.length; i++) {
-            promises[i].then(resolve, reject)
-        };
-    })
-}
-//all方法(获取所有的promise，都执行then，把结果放到数组，一起返回)
-Promise.all = function (promises) {
+Promise.resolve = function(val) {
+        return new Promise((resolve, reject) => {
+            resolve(val)
+        });
+    }
+    //reject方法
+Promise.reject = function(val) {
+        return new Promise((resolve, reject) => {
+            reject(val)
+        });
+    }
+    //race方法 
+Promise.race = function(promises) {
+        return new Promise((resolve, reject) => {
+            for (let i = 0; i < promises.length; i++) {
+                promises[i].then(resolve, reject)
+            };
+        })
+    }
+    //all方法(获取所有的promise，都执行then，把结果放到数组，一起返回)
+Promise.all = function(promises) {
     let arr = [];
     let i = 0;
 
@@ -152,7 +152,9 @@ Promise.all = function (promises) {
     });
 }
 let p = new Promise((resolve, reject) => {
-    setTimeout(function () {
+        setTimeout(function() {
 
-    }, 1000)
-})
+        }, 1000)
+    })
+    // https://juejin.im/post/5e2168626fb9a0300d619c9e
+    // promise A+规范
