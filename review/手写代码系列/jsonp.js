@@ -18,7 +18,7 @@ function jsonp(url, jsponCallback, success) {
     };
     document.body.appendChild(script)
 }
-
+// 复杂的 带参数的 返回promise
 const jsonp = ({ url, params, callbackName }) => {
     const generateURL = () => {
         let dataStr = '';

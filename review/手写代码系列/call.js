@@ -16,12 +16,19 @@ function bar() {
 Function.prototype.callx = function(context) {
     context = context ? Object(context) : window;
     context.fn = this;
-
     let args = [...arguments].slice(1);
     let result = context.fn(...args);
-
     delete context.fn
     return result;
 }
 
 bar.callx(foo); // 1
+
+Function.prototype.cally = function(context) {
+    context = context || window;
+    context.fn = this;
+    let args = [...arguments].slice(1);
+    let result = context.fn(...args);
+    delete context.fn;
+    return result;
+}
