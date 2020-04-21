@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+// import List from './main'
+import Bind from './Bindthis'
 // import LifeCycle from './LifeCycle'
 import Counter from './Counter'
 // const ele = < h2 > hello,react 233</h2>
@@ -24,20 +26,19 @@ import Counter from './Counter'
 //           1000
 //         );
 //       };
-    
+
 //       componentWillUnmount() {
 //         clearInterval(this.timerID);
 //       };
-    
+
 //       tick() {
 //         this.setState({
 //           date: new Date()
 //         });
 //       };
 //   }
- 
- 
-    ReactDom.render(
-      <Counter initCounter={0}/>,
-      document.getElementById('roo')
-    );
+
+
+ReactDom.render(<div><Bind></Bind></div>,
+    document.getElementById('roo')
+);
