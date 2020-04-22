@@ -4,6 +4,8 @@ import ReactDom from 'react-dom'
 import Bind from './Bindthis'
 // import LifeCycle from './LifeCycle'
 import Counter from './Counter'
+// import App from './App';
+import App from './RouterLearn'
 // const ele = < h2 > hello,react 233</h2>
 // const arr=[2,2,5,6,5,5,6];
 // ReactDom.render(<LifeCycle arr={arr}></LifeCycle>,document.querySelector('#root'));
@@ -39,6 +41,6 @@ import Counter from './Counter'
 //   }
 
 
-ReactDom.render(<div><Bind></Bind></div>,
+ReactDom.render( <App> </App> ,
     document.getElementById('roo')
 );
