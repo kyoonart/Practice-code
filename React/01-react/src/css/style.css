@@ -1,0 +1,23 @@
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    margin: 10px;
+    color: red;
+    background-color: #CCC;
+}
+
+.large {
+    background-color: green;
+}
+
+h2 {
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
