@@ -5,6 +5,8 @@ const app = express();
 app.get('/user/login', (req, res) => {
     console.log('hello');
     res.send('注册ok');
+    console.log(23);
+
 })
 app.listen(3000, () => {
     console.log('sever is runing');
