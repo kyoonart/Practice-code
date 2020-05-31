@@ -15,16 +15,13 @@ const Food = require('../db/model/foodModel');
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */
-// const foodSchema = new Schema({
-//     name: { type: String, require: true },
-//     price: { type: String, require: true },
-//     desc: { type: String, require: true },
-//     type: { type: String, require: true },
-//     typeId: { type: Number, require: true }
-//     imgUrl: { type: String, require: true }
-// });
 router.post('/add', (req, res) => {
-
+    let { name, price, desc, type, typeId, imgUrl } = req.body;
+    Food.insertMany({ name, price, desc, type, typeId, imgUrl }).then((data) => {
+        res.send({ code: 200, msg: "添加成功" })
+    }).catch(() => {
+        res.send({ code: 400, msg: "添加失败" })
+    })
 })
 
 module.exports = router ;  

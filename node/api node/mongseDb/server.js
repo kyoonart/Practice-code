@@ -17,7 +17,6 @@ console.log(Mail);
 let codes = {}
 app.use('/user', UserRouter);
 app.use('/food', FoodRouter);
-w
 app.post('/getMailCode', (req, res) => {
     let { mail } = req.body;
     let code = parseInt(Math.random() * 100000)

@@ -7,7 +7,7 @@ router.post('/reg', (req, res) => {
         res.send({ code: 400, msg: '参数错误' })
     } else {
         if (codes[us] != code) {
-            return res.send({ code: 200: msg: "验证码错误" })
+            return res.send({ code: 200, msg: "验证码错误" })
         }
         User.find({ us }).then((data) => {
                 if (data.length === 0) {
