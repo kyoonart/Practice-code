@@ -2,10 +2,13 @@ const express = require('express')
 const router = express.Router()
 const User = require('../db/model/userModel')
 router.post('/reg', (req, res) => {
-    let { us, ps } = req.body;
-    if (!us || !ps) {
+    let { us, ps, code } = req.body;
+    if (!us || !ps || !code) {
         res.send({ code: 400, msg: '参数错误' })
     } else {
+        if (codes[us] != code) {
+            return res.send({ code: 200: msg: "验证码错误" })
+        }
         User.find({ us }).then((data) => {
                 if (data.length === 0) {
                     return User.insertMany({ us, ps })
@@ -31,7 +34,7 @@ router.post('/reg', (req, res) => {
     }
 });
 router.post('/login', (req, res) => {
-    let { us, ps } = req.body;
+    let { us, ps, code } = req.body;
     if (!us || !ps) {
         res.send({ code: 400, msg: '参数错误' })
     } else {
@@ -45,4 +48,4 @@ router.post('/login', (req, res) => {
     }
 
 })
-module.exports = router
+module.exports = router ;  
