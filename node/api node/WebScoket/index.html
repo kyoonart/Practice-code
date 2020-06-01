@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="sendServer()">发送</button>
+    <h1 class="title"></h1>
+    <script>
+        const title = document.querySelector('.title')
+        const ws = new WebSocket('ws://localhost:8000');
+        ws.onopen = function() {
+            console.log('服务器已经连接');
+        };
+        ws.onmessage = function(msg) {
+            title.innerHTML = msg.data;
+            console.log('来自服务器的数据' + msg.data);
+
+        }
+        ws.onclose = function() {
+            console.log('结束监听');
+
+        }
+
+        function sendServer() {
+            ws.send('xxxxxxxxx')
+        }
+    </script>
+
+</body>
+
+</html>
