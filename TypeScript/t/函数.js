@@ -19,5 +19,5 @@ function push(array) {
     array.push(item);
   });
   return array;
-}
+} 
 push(a, 1, 2, 3);
