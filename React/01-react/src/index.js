@@ -1,12 +1,13 @@
-import React from 'react'
-import ReactDom from 'react-dom'
+import React from "react";
+import ReactDom from "react-dom";
 // import List from './main'
-import Bind from './Bindthis'
+import Bind from "./Bindthis";
 // import LifeCycle from './LifeCycle'
-import Counter from './Counter'
+import Counter from "./Counter";
 // import App from './App';
-import App from './RouterLearn'
-import List from './List'
+import App from "./RouterLearn";
+import List from "./List";
+import Dnd from "./dnd/index.jsx";
 // const ele = < h2 > hello,react 233</h2>
 // const arr=[2,2,5,6,5,5,6];
 // ReactDom.render(<LifeCycle arr={arr}></LifeCycle>,document.querySelector('#root'));
@@ -41,7 +42,4 @@ import List from './List'
 //       };
 //   }
 
-
-ReactDom.render( <List></List> ,
-    document.getElementById('roo')
-);
+ReactDom.render( < Dnd / > , document.getElementById("roo"));
