@@ -1,3 +1,9 @@
+// 可选参数一定需要加在确定参数后面
+// 函数声明式写法
+function add(x: number, y: number): number {
+  return x + y;
+}
+// 这是函数表达式类型的写法
 let mySum: (x: number, y?: number) => number = function (
   x: number,
   y?: number
@@ -27,6 +33,3 @@ function push(array: any[], ...items: any[]) {
   });
   return array;
 }
-
-let a = [];
-push(a, 1, 2, 3);

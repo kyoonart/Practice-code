@@ -11,3 +11,4 @@ let a: string = tom[0].slice(1);
 let b: number = tom[1].toFixed(2);
 console.log(a);
 console.log(b);
+// Tuple 元祖
